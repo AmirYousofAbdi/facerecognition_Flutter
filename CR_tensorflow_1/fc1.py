@@ -28,7 +28,7 @@ celeb = ["anne_hathaway","arnold_schwarzenegger","ben_afflek","dwayne_johnson","
         "keanu_reeves","lauren_cohan","madonna","mindy_kaling","simon_pegg","sofia_vergara","will_smith"] 
 
 
-main_path="/home/amiryousof/Desktop/andriod/CR_tensorflow_1/images"
+main_path="/home/amiryousof/Desktop/andriod/CR_tensorflow_1/images"      ## DONT FORGET TO CHANGE IT!!!
 
 
 for folder in os.listdir(main_path+"/train"):
