@@ -1,8 +1,4 @@
-import cv2
-
-
-path = 'download.jfif'  #img adress
-def main(path):
+def bb_crop(path):
     original_image = cv2.imread(path)
 
     if original_image is not None:
