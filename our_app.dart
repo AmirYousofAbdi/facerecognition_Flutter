@@ -3,7 +3,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:async';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:run_app/gallery.dart';
+import 'package:run_app/camera.dart';
+import 'package:run_app/galery.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,7 +17,8 @@ void main() {
       '/': (context) => FirstScreen(),
       // When navigating to the "/second" route, build the SecondScreen widget.
       '/second': (context) => SecondScreen(),
-      '/gallery': (context) => MyApp(),
+      '/camera': (context) => Camera(),
+      '/galery': (context) => GalleryAccess(),
     },
   ));
 }
@@ -79,9 +81,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
 
 
-void camera(){
-  print("camera");
-}
+
 
 
 
@@ -102,10 +102,10 @@ class _SecondScreenState extends State<SecondScreen> {
         .width;
     print(width);
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Center(child: Text("Celebrity tour")),
-        backgroundColor: Colors.blueGrey[700],
+        backgroundColor: Colors.blue[500],
 
       ),
       body: Stack(
@@ -119,11 +119,11 @@ class _SecondScreenState extends State<SecondScreen> {
                 child: RaisedButton(
                     onPressed: () {
                       setState(() {
-                        Navigator.pushNamed(context, '/gallery');
+                        Navigator.pushNamed(context, '/camera');
                       });
                     },
-                    color: Colors.blueGrey[600],
-                    child: Icon(Icons.photo_album)
+                    color: Colors.blue[500],
+                    child: Icon(Icons.add_a_photo)
                 ),
               ),
             ),
@@ -139,11 +139,11 @@ class _SecondScreenState extends State<SecondScreen> {
                 child: RaisedButton(
                     onPressed: () {
                       setState(() {
-                        camera();
+                        Navigator.pushNamed(context, '/galery');
                       });
                     },
-                    color: Colors.blueGrey[600],
-                    child: Icon(Icons.add_a_photo)
+                    color: Colors.blue[500],
+                    child: Icon(Icons.photo_album)
                 ),
               )
 
