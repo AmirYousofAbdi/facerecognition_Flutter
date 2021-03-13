@@ -32,7 +32,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+
 
       body: Stack(
         children:[
@@ -65,6 +65,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   Navigator.pushNamed(context, '/second');
                 }),
           ),
+
         ],
       ),
 
@@ -95,6 +96,9 @@ class SecondScreen extends StatefulWidget {
 
 class _SecondScreenState extends State<SecondScreen> {
   @override
+  Color gradientStart = Colors.purple[500]; //Change start gradient color here
+  Color gradientEnd = Colors.blue[700];
+
   Widget build(BuildContext context) {
     double width = MediaQuery
         .of(context)
@@ -102,14 +106,22 @@ class _SecondScreenState extends State<SecondScreen> {
         .width;
     print(width);
     return Scaffold(
-      backgroundColor: Colors.white,
+
       appBar: AppBar(
-        title: Center(child: Text("Celebrity tour")),
+        title: Center(child: Text("Celebrity tour", style: TextStyle(color: Colors.white),),),
         backgroundColor: Colors.blue[500],
 
       ),
-      body: Stack(
+      body:Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [gradientEnd, gradientStart])
+        ),
+        child: Stack(
         children: [
+
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
@@ -129,6 +141,7 @@ class _SecondScreenState extends State<SecondScreen> {
             ),
 
           ),
+
           Align(
             alignment: Alignment.bottomRight,
             child: Container(
@@ -151,8 +164,20 @@ class _SecondScreenState extends State<SecondScreen> {
             ),
 
           ),
+          Align(
+
+            child: Center(child: Text("Nothing selected", style: TextStyle(fontFamily: 'Montserrat' ,fontSize: 25, color:Colors.white),)),
+
+
+          ),
+
+
+
+
         ],
+    ),
       ),
+
 
     );
   }

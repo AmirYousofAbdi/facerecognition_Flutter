@@ -36,22 +36,36 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  Color gradientStart = Colors.purple[500]; //Change start gradient color here
+  Color gradientEnd = Colors.blue[700];
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Image Picker Example'),
       ),
 
-      body: Center(
+      body:
+      Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [gradientEnd, gradientStart])
+          ),
+      child: Stack(
+      children: [
+        Center(
         child: _image == null
-            ? Text('No image selected.')
+            ? Text('No image selected.', style: TextStyle(color: Colors.white),)
             : Image.file(_image),
       ),
-      floatingActionButton: FloatingActionButton(
+      Align(
+        alignment: Alignment.bottomRight,
+        child:FloatingActionButton(
         onPressed: getImage,
         tooltip: 'Pick Image',
         child: Icon(Icons.add_a_photo),
-      ),
+      ),),],),),
     );
   }
 }
